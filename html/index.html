@@ -1,0 +1,8 @@
+<div id="passwd"></div>
+<script type="text/javascript" src="js/password.js"></script>
+<script type="text/javascript">
+var generator = new Generator();
+var passwd = generator.generatePassword(8, true, false, true, true);
+console.log(passwd);
+document.getElementById('passwd').innerHTML = passwd;
+</script>

@@ -1,0 +1,31 @@
+{
+  "name": "password-generator",
+  "version": "0.0.1",
+  "description": "a simple javascript password generator",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsamaya/password-generator.git"
+  },
+  "keywords": [
+    "password",
+    "generator"
+  ],
+  "author": {
+    "name": "Arnaud Ferrand",
+    "homepage": "https://github.com/tsamaya"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
