@@ -1,8 +1,152 @@
-<div id="passwd"></div>
-<script type="text/javascript" src="js/password.js"></script>
-<script type="text/javascript">
-var generator = new Generator();
-var passwd = generator.generatePassword(8, true, false, true, true);
-console.log(passwd);
-document.getElementById('passwd').innerHTML = passwd;
-</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Simple passwords generator</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <h1>
+          <a href="/">
+            <span>Passwords Generator</span>
+          </a>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="well">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <label>Options</label>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="form-group">
+                <select id="length">
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option selected>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                  <option>32</option>
+                </select>
+                Length
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked="true" id="lowers"> lowercase letters
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked="true" id="uppers"> uppercase letters
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked="true" id="numbers"> numbers
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="specials" value="noooon"> symbols
+                </label>
+              </div>
+            </div>
+            <!-- </panel-body> -->
+          </div>
+          <!-- </panel> -->
+        </div>
+        <!--</div>-->
+        <div class="col-md-9">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" readonly="true" />
+          </div>
+          <p>
+            <button type="button" class="btn btn-primary" id="generate">Generate Password</button>
+            <button type="button" class="btn btn-danger" id="clear">Clear</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+
+  <script type="text/javascript" src="js/password.js"></script>
+  <script type="text/javascript">
+    var generator = new Generator();
+
+    $('#clear').on('click', function() {
+      $('#password').val('');
+    });
+
+    $('#generate').on('click', function() {
+      var length = $('#length').val();
+      var withLowers = $('#lowers').is(':checked');
+      var withUppers = $('#uppers').is(':checked');
+      var withNumbers = $('#numbers').is(':checked');
+      var withSpecials = $('#specials').is(':checked');
+      if( withLowers === false && withUppers === false && withNumbers === false && withSpecials === false ) {
+        $('#lowers').prop('checked', true);
+        withLowers = true;
+      }
+      var passwd = generator.generatePassword(length, withLowers, withUppers, withNumbers, withSpecials);
+      console.log(passwd);
+      $('#password').val(passwd);
+    });
+  </script>
+</body>
+
+</html>
