@@ -2,7 +2,7 @@
 > a simple password generator
 
 ## HTML Version
-[View it live ](http;//tsamaya.github.io/password-generator/html/)
+[View it live ](https://tsamaya.github.io/password-generator/html/)
 
 ## Node Version
 _working on progress_
